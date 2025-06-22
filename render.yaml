@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: party-role-backend
+    env: java
+    runtime: java-17
+    plan: free
+    buildCommand: mvn clean install
+    startCommand: java -jar target/*.jar
+    autoDeploy: true
