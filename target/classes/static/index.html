@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Telecom - Backend Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    :root {
+      --primary: #0A2463;
+      --primary-dark: #071A3F;
+      --primary-light: #1E3F8B;
+      --secondary: #3E78B2;
+      --accent: #4A90E2;
+      --light: #FFFFFF;
+      --dark: #0A192F;
+      --text-light: #F8F9FA;
+      --text-dark: #343A40;
+      --gradient-start: #0A2463;
+      --gradient-end: #3E78B2;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background-color: var(--light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      background:
+        linear-gradient(to bottom, rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)),
+        url('colombo.jpg') center/cover no-repeat;
+      color: var(--text-light);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(30deg);
+      pointer-events: none;
+    }
+
+    header img {
+      width: 250px;
+      height: auto;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      animation: fadeIn 0.8s ease-out;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 4.3rem;
+      margin: 0.5rem 0;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease-out 0.2s both;
+      z-index: 1;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      animation: fadeIn 0.8s ease-out 0.4s both;
+      z-index: 1;
+      color: white;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+      background: var(--light);
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgba(10, 36, 99, 0.08);
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+      border: 1px solid rgba(62, 120, 178, 0.1);
+    }
+
+    p {
+      font-size: 1.15rem;
+      margin: 1.5rem 0;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+      padding: 0.9rem 2.2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--text-light);
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(10, 36, 99, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(10, 36, 99, 0.3);
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .button i {
+      margin-right: 10px;
+      font-size: 1.1rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .feature-card {
+      flex: 1;
+      min-width: 200px;
+      background: var(--light);
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(10, 36, 99, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(62, 120, 178, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(10, 36, 99, 0.1);
+      border-color: rgba(74, 144, 226, 0.3);
+    }
+
+    .feature-card i {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .feature-card h3 {
+      margin: 0.5rem 0 1rem;
+      color: var(--primary-dark);
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background: var(--dark);
+      color: rgba(255,255,255,0.8);
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+    }
+
+    .social-links {
+      margin: 1.5rem 0;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+      color: var(--text-light);
+      margin: 0 8px;
+      border-radius: 50%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      header {
+        padding: 2rem 1rem;
+        min-height: 250px;
+      }
+
+      main {
+        margin: 2rem 1rem;
+        padding: 1.8rem;
+      }
+
+      .features {
+        flex-direction: column;
+      }
+
+      .feature-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+    <img src="slt.png" alt="SLT Logo">
+    <h1>Sri Lanka Telecom</h1>
+    <p>Party Role Backend Service</p>
+</header>
+
+<main>
+    <p>This Spring Boot application provides secure and scalable API services for party role management, hosted on Railway cloud platform.</p>
+
+    <div class="features">
+        <div class="feature-card">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>High Performance</h3>
+            <p>Optimized architecture for enterprise-grade performance and reliability</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-lock"></i>
+            <h3>Security First</h3>
+            <p>End-to-end encryption and JWT authentication for all endpoints</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-server"></i>
+            <h3>Cloud Ready</h3>
+            <p>Containerized deployment with Kubernetes support</p>
+        </div>
+    </div>
+
+    <a href="https://documenter.getpostman.com/view/YOUR_DOC_ID" class="button" target="_blank">
+        <i class="fas fa-file-alt"></i> API Documentation
+    </a>
+</main>
+
+<footer>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="copyright">
+        &copy; 2025 Sri Lanka Telecom | Developed by Imangana
+    </div>
+</footer>
+
+</body>
+</html>

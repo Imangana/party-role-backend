@@ -18,7 +18,6 @@ org\openapitools\model\EventSubscription.class
 org\openapitools\model\Characteristic.class
 org\openapitools\model\PaymentMethodRef.class
 org\openapitools\api\EventsSubscriptionApi.class
-org\openapitools\controller\HomeController.class
 org\openapitools\model\AgreementRef.class
 org\openapitools\api\PartyRoleApiController.class
 org\openapitools\model\PartyRoleStateChangeEvent.class
